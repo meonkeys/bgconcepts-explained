@@ -33,7 +33,7 @@
   <div class="reveal">
     <div class="slides">
 
-      <section>
+      <section data-background="media/sunset.jpg">
         <h1>Bash and Git</h1>
         <h2>Awesome, For You, Right Now</h2>
         <p>by <a href="http://adammonsen.com">Adam</a></p>
@@ -76,7 +76,7 @@
         </ul>
       </section>
 
-      <section>
+      <section data-background="media/peeping.jpg">
         <h2>We'll come back to that.</h2>
         <p>But first, <a href="http://git-intro.redhoterlang.org" target="_blank">a gentle introduction to git.</a></p>
         <aside class="notes">slides 1 through 11</aside>
@@ -135,7 +135,7 @@ $ ping google.com           # ping google.com
         </code></pre>
       </section>
 
-      <section>
+      <section data-background="media/oops.jpg">
         <h2>Help!</h2>
         <pre><code>
 $ help history      # help for 'history' Bash builtin
@@ -177,20 +177,37 @@ $ fg    # same, in the foreground
         </code></pre>
       </section>
 
-      <section>
+      <section data-background="media/loaf.jpg">
         <h2>Enough Bash. More git please.</h2>
         <!-- FIXME: link to live slideshow -->
         <p><a href="file:///home/adamm/git/git-talk/git-talk-s5.html" target="_blank">Intermediate Git</a></p>
       </section>
 
       <section>
-        <h2>More resources</h2>
-        <ol>
+        <h2>Bash script: update multiple git clones</h2>
+        <pre><code>
+for repo in `\ls`
+do
+    echo $repo
+done | xargs -n1 -I{} git --git-dir={}/.git pull --ff-only
+        </code></pre>
+        <p class="fragment">But ugh, so slow! Let's pile up blocking operations.</p>
+        <pre class="fragment"><code>
+for repo in `\ls`
+do
+    echo $repo
+done | xargs -P8 -n1 -I{} git --git-dir={}/.git pull --ff-only
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>See also</h2>
+        <ul>
           <li><code>bash(1)</code> manpage or the <a href="https://www.gnu.org/software/bash/manual/bashref.html">reference manual</a></li>
           <li><a href="http://tldp.org/LDP/abs/html/">Advanced Bash-Scripting Guide</a></li>
           <li><a href="http://www.git-scm.com/book">Pro Git</a></li>
           <li>IRC (for example, <code>#git</code> on FreeNode), mailing lists</li>
-        </ol>
+        </ul>
       </section>
 
     </div> <!-- slides -->
