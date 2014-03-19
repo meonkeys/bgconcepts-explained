@@ -43,6 +43,7 @@
         <p>I aim to empower you, <br/>
         challenge you, and <br/>
         inspire you to learn more.</p>
+        <aside class="notes">(quick poll: prior shell/git experience)</aside>
       </section>
 
       <section data-background="media/driver.jpg">
@@ -56,10 +57,86 @@
       </section>
 
       <section>
-        <h2>Ok, great. Let's Bash.</h2>
+        <h2>Let's Bash.</h2>
+        <p>Command line</p>
+        <pre><code>
+$ echo Hello, World
+        </code></pre>
+        <p>Saved file</p>
         <pre><code>
 #!/bin/bash
 echo Hello, World
+        </code></pre>
+        <aside class="notes">Bash is a simple, loose, fast <em>shell</em> and <em>programming language</em>.</aside>
+      </section>
+
+      <section>
+        <h2>Basics</h2>
+        <p>Starring... <code>foo.sh</code>!</p>
+        <pre><code>
+$ cd /tmp            # change dir to /tmp
+$ pwd                # display current dir
+$ ls -l              # detailed listing of files in current dir
+$ touch foo.sh       # create empty file 'foo.sh'
+$ vim foo.sh         # edit 'foo.sh' with Vim text editor
+$ file foo.sh        # identify file based on contents
+$ chmod +x foo.sh    # make file 'a' executable
+$ chown zed foo.sh   # make user 'z' the owner of file 'a'
+$ ./foo.sh           # execute 'foo.sh' in current dir
+$ rm foo.sh          # delete file 'foo.sh' in current dir
+$ history            # list recent commands
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>More commands</h2>
+        <pre><code>
+$ top                       # display Linux tasks
+$ yum install emacs         # install emacs operating system
+$ at 5pm                    # run a command at 5pm
+$ ss -ln                    # display listening ports
+$ ifconfig                  # display network interfaces
+$ date +%s                  # display seconds since the epoch
+$ date -d @398352385        # convert same back to date/time string
+$ curl http://icanhazip.com # display public IP address
+$ ping google.com           # ping google.com
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Help!</h2>
+        <pre><code>
+$ help history      # help for 'history' Bash builtin
+$ ls --help | less  # show usage info for 'ls', paged with 'less'
+$ man nano          # open the 'nano' manpage
+$ git blarf         # illegal, prints helpful message
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Pipes</h2>
+        <pre><code>
+$ ls --help | less       # you should know this one by now
+$ rpm -qa | grep magick  # list installed packages with 'magick' in their name
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Redirection</h2>
+        <pre><code>
+$ echo Hello, World &gt; clobbered-by-stdout.txt
+$ echo Hello, World &gt;&gt; appended.txt
+$ find /tmp 2&gt; stderr.txt
+$ sed -e 's/give/take/' &lt; in.txt &gt; out.txt
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Job control</h2>
+        <pre><code>
+$ jobs  # list currently running jobs
+$ bg    # resume a job suspended with CTRL-z, in the background
+$ fg    # same, in the foreground
         </code></pre>
       </section>
 
